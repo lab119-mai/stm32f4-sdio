@@ -10,13 +10,71 @@ impl crate::ResetValue for super::SR {
         0
     }
 }
+#[doc = "End of operation\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum EOP_A {
+    #[doc = "0: No EOP event occurred"]
+    NOEVENT = 0,
+    #[doc = "1: An EOP event occurred"]
+    EVENT = 1,
+}
+impl From<EOP_A> for bool {
+    #[inline(always)]
+    fn from(variant: EOP_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Reader of field `EOP`"]
-pub type EOP_R = crate::R<bool, bool>;
+pub type EOP_R = crate::R<bool, EOP_A>;
+impl EOP_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> EOP_A {
+        match self.bits {
+            false => EOP_A::NOEVENT,
+            true => EOP_A::EVENT,
+        }
+    }
+    #[doc = "Checks if the value of the field is `NOEVENT`"]
+    #[inline(always)]
+    pub fn is_no_event(&self) -> bool {
+        *self == EOP_A::NOEVENT
+    }
+    #[doc = "Checks if the value of the field is `EVENT`"]
+    #[inline(always)]
+    pub fn is_event(&self) -> bool {
+        *self == EOP_A::EVENT
+    }
+}
+#[doc = "End of operation\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum EOP_AW {
+    #[doc = "1: Reset EOP event"]
+    RESET = 1,
+}
+impl From<EOP_AW> for bool {
+    #[inline(always)]
+    fn from(variant: EOP_AW) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Write proxy for field `EOP`"]
 pub struct EOP_W<'a> {
     w: &'a mut W,
 }
 impl<'a> EOP_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: EOP_AW) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
+    #[doc = "Reset EOP event"]
+    #[inline(always)]
+    pub fn reset(self) -> &'a mut W {
+        self.variant(EOP_AW::RESET)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -34,13 +92,71 @@ impl<'a> EOP_W<'a> {
         self.w
     }
 }
+#[doc = "Operation error\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum OPERR_A {
+    #[doc = "0: No operation error occurred"]
+    NOERROR = 0,
+    #[doc = "1: An operation error occurred"]
+    ERROR = 1,
+}
+impl From<OPERR_A> for bool {
+    #[inline(always)]
+    fn from(variant: OPERR_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Reader of field `OPERR`"]
-pub type OPERR_R = crate::R<bool, bool>;
+pub type OPERR_R = crate::R<bool, OPERR_A>;
+impl OPERR_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> OPERR_A {
+        match self.bits {
+            false => OPERR_A::NOERROR,
+            true => OPERR_A::ERROR,
+        }
+    }
+    #[doc = "Checks if the value of the field is `NOERROR`"]
+    #[inline(always)]
+    pub fn is_no_error(&self) -> bool {
+        *self == OPERR_A::NOERROR
+    }
+    #[doc = "Checks if the value of the field is `ERROR`"]
+    #[inline(always)]
+    pub fn is_error(&self) -> bool {
+        *self == OPERR_A::ERROR
+    }
+}
+#[doc = "Operation error\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum OPERR_AW {
+    #[doc = "1: Reset operation error"]
+    RESET = 1,
+}
+impl From<OPERR_AW> for bool {
+    #[inline(always)]
+    fn from(variant: OPERR_AW) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Write proxy for field `OPERR`"]
 pub struct OPERR_W<'a> {
     w: &'a mut W,
 }
 impl<'a> OPERR_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: OPERR_AW) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
+    #[doc = "Reset operation error"]
+    #[inline(always)]
+    pub fn reset(self) -> &'a mut W {
+        self.variant(OPERR_AW::RESET)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -58,13 +174,71 @@ impl<'a> OPERR_W<'a> {
         self.w
     }
 }
+#[doc = "Write protection error\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WRPERR_A {
+    #[doc = "0: No write protection error occurred"]
+    NOERROR = 0,
+    #[doc = "1: A write protection error occurred"]
+    ERROR = 1,
+}
+impl From<WRPERR_A> for bool {
+    #[inline(always)]
+    fn from(variant: WRPERR_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Reader of field `WRPERR`"]
-pub type WRPERR_R = crate::R<bool, bool>;
+pub type WRPERR_R = crate::R<bool, WRPERR_A>;
+impl WRPERR_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> WRPERR_A {
+        match self.bits {
+            false => WRPERR_A::NOERROR,
+            true => WRPERR_A::ERROR,
+        }
+    }
+    #[doc = "Checks if the value of the field is `NOERROR`"]
+    #[inline(always)]
+    pub fn is_no_error(&self) -> bool {
+        *self == WRPERR_A::NOERROR
+    }
+    #[doc = "Checks if the value of the field is `ERROR`"]
+    #[inline(always)]
+    pub fn is_error(&self) -> bool {
+        *self == WRPERR_A::ERROR
+    }
+}
+#[doc = "Write protection error\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum WRPERR_AW {
+    #[doc = "1: Reset write protection error"]
+    RESET = 1,
+}
+impl From<WRPERR_AW> for bool {
+    #[inline(always)]
+    fn from(variant: WRPERR_AW) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Write proxy for field `WRPERR`"]
 pub struct WRPERR_W<'a> {
     w: &'a mut W,
 }
 impl<'a> WRPERR_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: WRPERR_AW) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
+    #[doc = "Reset write protection error"]
+    #[inline(always)]
+    pub fn reset(self) -> &'a mut W {
+        self.variant(WRPERR_AW::RESET)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -82,13 +256,71 @@ impl<'a> WRPERR_W<'a> {
         self.w
     }
 }
+#[doc = "Programming alignment error\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum PGAERR_A {
+    #[doc = "0: No programming alignment error occurred"]
+    NOERROR = 0,
+    #[doc = "1: A programming alignment error occurred"]
+    ERROR = 1,
+}
+impl From<PGAERR_A> for bool {
+    #[inline(always)]
+    fn from(variant: PGAERR_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Reader of field `PGAERR`"]
-pub type PGAERR_R = crate::R<bool, bool>;
+pub type PGAERR_R = crate::R<bool, PGAERR_A>;
+impl PGAERR_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> PGAERR_A {
+        match self.bits {
+            false => PGAERR_A::NOERROR,
+            true => PGAERR_A::ERROR,
+        }
+    }
+    #[doc = "Checks if the value of the field is `NOERROR`"]
+    #[inline(always)]
+    pub fn is_no_error(&self) -> bool {
+        *self == PGAERR_A::NOERROR
+    }
+    #[doc = "Checks if the value of the field is `ERROR`"]
+    #[inline(always)]
+    pub fn is_error(&self) -> bool {
+        *self == PGAERR_A::ERROR
+    }
+}
+#[doc = "Programming alignment error\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum PGAERR_AW {
+    #[doc = "1: Reset programming alignment error"]
+    RESET = 1,
+}
+impl From<PGAERR_AW> for bool {
+    #[inline(always)]
+    fn from(variant: PGAERR_AW) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Write proxy for field `PGAERR`"]
 pub struct PGAERR_W<'a> {
     w: &'a mut W,
 }
 impl<'a> PGAERR_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: PGAERR_AW) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
+    #[doc = "Reset programming alignment error"]
+    #[inline(always)]
+    pub fn reset(self) -> &'a mut W {
+        self.variant(PGAERR_AW::RESET)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -106,13 +338,71 @@ impl<'a> PGAERR_W<'a> {
         self.w
     }
 }
+#[doc = "Programming parallelism error\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum PGPERR_A {
+    #[doc = "0: No programming parallelism error occurred"]
+    NOERROR = 0,
+    #[doc = "1: A programming parallelism error occurred"]
+    ERROR = 1,
+}
+impl From<PGPERR_A> for bool {
+    #[inline(always)]
+    fn from(variant: PGPERR_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Reader of field `PGPERR`"]
-pub type PGPERR_R = crate::R<bool, bool>;
+pub type PGPERR_R = crate::R<bool, PGPERR_A>;
+impl PGPERR_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> PGPERR_A {
+        match self.bits {
+            false => PGPERR_A::NOERROR,
+            true => PGPERR_A::ERROR,
+        }
+    }
+    #[doc = "Checks if the value of the field is `NOERROR`"]
+    #[inline(always)]
+    pub fn is_no_error(&self) -> bool {
+        *self == PGPERR_A::NOERROR
+    }
+    #[doc = "Checks if the value of the field is `ERROR`"]
+    #[inline(always)]
+    pub fn is_error(&self) -> bool {
+        *self == PGPERR_A::ERROR
+    }
+}
+#[doc = "Programming parallelism error\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum PGPERR_AW {
+    #[doc = "1: Reset programming parallelism error"]
+    RESET = 1,
+}
+impl From<PGPERR_AW> for bool {
+    #[inline(always)]
+    fn from(variant: PGPERR_AW) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Write proxy for field `PGPERR`"]
 pub struct PGPERR_W<'a> {
     w: &'a mut W,
 }
 impl<'a> PGPERR_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: PGPERR_AW) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
+    #[doc = "Reset programming parallelism error"]
+    #[inline(always)]
+    pub fn reset(self) -> &'a mut W {
+        self.variant(PGPERR_AW::RESET)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -130,13 +420,71 @@ impl<'a> PGPERR_W<'a> {
         self.w
     }
 }
+#[doc = "Programming sequence error\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum PGSERR_A {
+    #[doc = "0: No programming sequence error occurred"]
+    NOERROR = 0,
+    #[doc = "1: A programming sequence error occurred"]
+    ERROR = 1,
+}
+impl From<PGSERR_A> for bool {
+    #[inline(always)]
+    fn from(variant: PGSERR_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Reader of field `PGSERR`"]
-pub type PGSERR_R = crate::R<bool, bool>;
+pub type PGSERR_R = crate::R<bool, PGSERR_A>;
+impl PGSERR_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> PGSERR_A {
+        match self.bits {
+            false => PGSERR_A::NOERROR,
+            true => PGSERR_A::ERROR,
+        }
+    }
+    #[doc = "Checks if the value of the field is `NOERROR`"]
+    #[inline(always)]
+    pub fn is_no_error(&self) -> bool {
+        *self == PGSERR_A::NOERROR
+    }
+    #[doc = "Checks if the value of the field is `ERROR`"]
+    #[inline(always)]
+    pub fn is_error(&self) -> bool {
+        *self == PGSERR_A::ERROR
+    }
+}
+#[doc = "Programming sequence error\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum PGSERR_AW {
+    #[doc = "1: Reset programming sequence error"]
+    RESET = 1,
+}
+impl From<PGSERR_AW> for bool {
+    #[inline(always)]
+    fn from(variant: PGSERR_AW) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Write proxy for field `PGSERR`"]
 pub struct PGSERR_W<'a> {
     w: &'a mut W,
 }
 impl<'a> PGSERR_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: PGSERR_AW) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
+    #[doc = "Reset programming sequence error"]
+    #[inline(always)]
+    pub fn reset(self) -> &'a mut W {
+        self.variant(PGSERR_AW::RESET)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -154,13 +502,71 @@ impl<'a> PGSERR_W<'a> {
         self.w
     }
 }
+#[doc = "Read Protection Error\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum RDERR_A {
+    #[doc = "0: No read protection error occurred"]
+    NOERROR = 0,
+    #[doc = "1: A read protection error occurred"]
+    ERROR = 1,
+}
+impl From<RDERR_A> for bool {
+    #[inline(always)]
+    fn from(variant: RDERR_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Reader of field `RDERR`"]
-pub type RDERR_R = crate::R<bool, bool>;
+pub type RDERR_R = crate::R<bool, RDERR_A>;
+impl RDERR_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> RDERR_A {
+        match self.bits {
+            false => RDERR_A::NOERROR,
+            true => RDERR_A::ERROR,
+        }
+    }
+    #[doc = "Checks if the value of the field is `NOERROR`"]
+    #[inline(always)]
+    pub fn is_no_error(&self) -> bool {
+        *self == RDERR_A::NOERROR
+    }
+    #[doc = "Checks if the value of the field is `ERROR`"]
+    #[inline(always)]
+    pub fn is_error(&self) -> bool {
+        *self == RDERR_A::ERROR
+    }
+}
+#[doc = "Read Protection Error\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum RDERR_AW {
+    #[doc = "1: Reset read protection error"]
+    RESET = 1,
+}
+impl From<RDERR_AW> for bool {
+    #[inline(always)]
+    fn from(variant: RDERR_AW) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Write proxy for field `RDERR`"]
 pub struct RDERR_W<'a> {
     w: &'a mut W,
 }
 impl<'a> RDERR_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: RDERR_AW) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
+    #[doc = "Reset read protection error"]
+    #[inline(always)]
+    pub fn reset(self) -> &'a mut W {
+        self.variant(RDERR_AW::RESET)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
@@ -178,8 +584,42 @@ impl<'a> RDERR_W<'a> {
         self.w
     }
 }
+#[doc = "Busy\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum BSY_A {
+    #[doc = "0: No Flash memory operation ongoing"]
+    NOTBUSY = 0,
+    #[doc = "1: Flash memory operation ongoing"]
+    BUSY = 1,
+}
+impl From<BSY_A> for bool {
+    #[inline(always)]
+    fn from(variant: BSY_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Reader of field `BSY`"]
-pub type BSY_R = crate::R<bool, bool>;
+pub type BSY_R = crate::R<bool, BSY_A>;
+impl BSY_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> BSY_A {
+        match self.bits {
+            false => BSY_A::NOTBUSY,
+            true => BSY_A::BUSY,
+        }
+    }
+    #[doc = "Checks if the value of the field is `NOTBUSY`"]
+    #[inline(always)]
+    pub fn is_not_busy(&self) -> bool {
+        *self == BSY_A::NOTBUSY
+    }
+    #[doc = "Checks if the value of the field is `BUSY`"]
+    #[inline(always)]
+    pub fn is_busy(&self) -> bool {
+        *self == BSY_A::BUSY
+    }
+}
 impl R {
     #[doc = "Bit 0 - End of operation"]
     #[inline(always)]

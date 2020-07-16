@@ -172,13 +172,64 @@ impl<'a> NWRP_W<'a> {
         self.w
     }
 }
+#[doc = "Selection of Protection Mode of nWPRi bits\n\nValue on reset: 0"]
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum SPRMOD_A {
+    #[doc = "0: PCROP disabled, nWPRi bits used for Write Protection on sector i"]
+    DISABLED = 0,
+    #[doc = "1: PCROP enabled, nWPRi bits used for PCROP Protection on sector i"]
+    ENABLED = 1,
+}
+impl From<SPRMOD_A> for bool {
+    #[inline(always)]
+    fn from(variant: SPRMOD_A) -> Self {
+        variant as u8 != 0
+    }
+}
 #[doc = "Reader of field `SPRMOD`"]
-pub type SPRMOD_R = crate::R<bool, bool>;
+pub type SPRMOD_R = crate::R<bool, SPRMOD_A>;
+impl SPRMOD_R {
+    #[doc = r"Get enumerated values variant"]
+    #[inline(always)]
+    pub fn variant(&self) -> SPRMOD_A {
+        match self.bits {
+            false => SPRMOD_A::DISABLED,
+            true => SPRMOD_A::ENABLED,
+        }
+    }
+    #[doc = "Checks if the value of the field is `DISABLED`"]
+    #[inline(always)]
+    pub fn is_disabled(&self) -> bool {
+        *self == SPRMOD_A::DISABLED
+    }
+    #[doc = "Checks if the value of the field is `ENABLED`"]
+    #[inline(always)]
+    pub fn is_enabled(&self) -> bool {
+        *self == SPRMOD_A::ENABLED
+    }
+}
 #[doc = "Write proxy for field `SPRMOD`"]
 pub struct SPRMOD_W<'a> {
     w: &'a mut W,
 }
 impl<'a> SPRMOD_W<'a> {
+    #[doc = r"Writes `variant` to the field"]
+    #[inline(always)]
+    pub fn variant(self, variant: SPRMOD_A) -> &'a mut W {
+        {
+            self.bit(variant.into())
+        }
+    }
+    #[doc = "PCROP disabled, nWPRi bits used for Write Protection on sector i"]
+    #[inline(always)]
+    pub fn disabled(self) -> &'a mut W {
+        self.variant(SPRMOD_A::DISABLED)
+    }
+    #[doc = "PCROP enabled, nWPRi bits used for PCROP Protection on sector i"]
+    #[inline(always)]
+    pub fn enabled(self) -> &'a mut W {
+        self.variant(SPRMOD_A::ENABLED)
+    }
     #[doc = r"Sets the field bit"]
     #[inline(always)]
     pub fn set_bit(self) -> &'a mut W {
