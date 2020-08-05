@@ -9,7 +9,8 @@ pub struct RegisterBlock {
     pub arg: ARG,
     #[doc = "0x0c - The SDMMC_CMDR register contains the command index and command type bits. The command index is sent to a card as part of a command message. The command type bits control the command path state machine (CPSM)."]
     pub cmd: CMD,
-    _reserved4: [u8; 4usize],
+    #[doc = "0x10 - The SDMMC_RESPCMDR register contains the command index field of the last command response received. If the command response transmission does not contain the command index field (long or OCR response), the RESPCMD field is unknown, although it must contain 111111b (the value of the reserved field from the response)."]
+    pub respcmd: RESPCMD,
     #[doc = "0x14 - The SDMMC_RESP1/2/3/4R registers contain the status of a card, which is part of the received response."]
     pub resp1: RESP,
     #[doc = "0x18 - The SDMMC_RESP1/2/3/4R registers contain the status of a card, which is part of the received response."]
@@ -32,13 +33,10 @@ pub struct RegisterBlock {
     pub icr: ICR,
     #[doc = "0x3c - The interrupt mask register determines which status flags generate an interrupt request by setting the corresponding bit to 1."]
     pub mask: MASK,
-    _reserved15: [u8; 8usize],
+    _reserved16: [u8; 8usize],
     #[doc = "0x48 - The SDIO_FIFOCNT register contains the remaining number of words to be written to or read from the FIFO. The FIFO counter loads the value from the data length register (see SDIO_DLEN) when the data transfer enable bit, DTEN, is set in the data control register (SDIO_DCTRL register) and the DPSM is at the Idle state. If the data length is not word-aligned (multiple of 4), the remaining 1 to 3 bytes are regarded as a word."]
     pub fifocnt: FIFOCNT,
-    _reserved16: [u8; 20usize],
-    #[doc = "0x60 - The SDMMC_RESPCMDR register contains the command index field of the last command response received. If the command response transmission does not contain the command index field (long or OCR response), the RESPCMD field is unknown, although it must contain 111111b (the value of the reserved field from the response)."]
-    pub respcmd: RESPCMD,
-    _reserved17: [u8; 28usize],
+    _reserved17: [u8; 52usize],
     #[doc = "0x80 - The receive and transmit FIFOs can be only read or written as word (32-bit) wide registers. The FIFOs contain 16 entries on sequential addresses. This allows the CPU to use its load and store multiple operands to read from/write to the FIFO.When accessing SDMMC_FIFOR with half word or byte access an AHB bus fault is generated."]
     pub fifo: FIFO,
 }
